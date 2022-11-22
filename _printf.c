@@ -10,14 +10,31 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0;
+	int countStr = 0, total = 0, i = 0;
 
+	/*checking if format is NULL values*/
+	if (format == NULL)
+		return (-1);
+
+	/* printing the value of format*/
 	while (format[i])
 	{
-		write(1, &format[i], 1);
-		i++;
+		if (format[i] != '%')
+		{
+			countStr = write(1, &format[i], 1);
+			i++;
+			total += countStr;
+
+		} else
+		{
+			countStr = write(1, "!", 1);
+			i++;
+			total += countStr;
+
+		}
 	}
 
 
-	return (0);
+
+	return (total);
 }
