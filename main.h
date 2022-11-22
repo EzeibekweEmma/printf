@@ -8,5 +8,13 @@
 
 /* Prototypes */
 int _printf(const char *format, ...);
+int (*identifier_checker(char *format))(va_list);
+
+typedef struct func
+{
+	char *t;
+	int (*f)(va_list);
+} func_t;
+
 
 #endif /* _MAIN_H_ */
