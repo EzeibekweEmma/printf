@@ -10,11 +10,16 @@
 int _printf(const char *format, ...);
 int (*identifier_checker(char *format))(va_list);
 
+
 typedef struct func
 {
 	char *t;
 	int (*f)(va_list);
 } func_t;
+
+int print_c(va_list);
+int print_s(va_list);
+int print_cent(va_list);
 
 
 #endif /* _MAIN_H_ */

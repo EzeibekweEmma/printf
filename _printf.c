@@ -9,8 +9,12 @@
  */
 
 int _printf(const char *format, ...)
+
 {
 	int countStr = 0, total = 0, i = 0;
+	va_list args;
+
+	va_start(args, format);
 
 	/*checking if format is NULL values*/
 	if (format == NULL)
