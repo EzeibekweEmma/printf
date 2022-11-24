@@ -5,10 +5,11 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
 /* Prototypes */
 int _printf(const char *format, ...);
-int (*identifier_checker(char *format))(va_list);
+int (*identifier_checker(const char*))(va_list);
 
 
 typedef struct func

@@ -15,6 +15,7 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
+	int (*f)(va_list);
 
 	/*checking if format is NULL values*/
 	if (format == NULL)
@@ -33,11 +34,26 @@ int _printf(const char *format, ...)
 
 		if (format[i] == '%')
 		{
-			
+			f = identifier_checker(&format[i + 1]);
+			if (f != NULL)
+			{
+				countStr = f(args);
+				total += countStr;
+				i = i + 2;
+				continue;
+			}
+			if (format[i + 1] == '\0')
+			{
+				break;
+			}
+			if (format[i + 1] != '\0')
+			{
+				countStr = write(1, &format[i], 1);
+				i = i + 2;
+				total += countStr;
+				continue;
+			}
 		}
 	}
-
-
-
 	return (total);
 }

@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <unistd.h>
 /**
  * identifier_checker - check that charater is a valid identifier
  * @format: identifier charater
@@ -8,7 +8,7 @@
  */
 
 
-int (*identifier_checker(char *format))(va_list)
+int (*identifier_checker(const char *format))(va_list)
 {
 
 	func_t my_arr[4] = {
@@ -22,7 +22,7 @@ int (*identifier_checker(char *format))(va_list)
 
 	for (i = 0; my_arr[i].t != NULL; i++)
 	{
-		if (my_arr[i].t == *format)
+		if (*(my_arr[i].t) == *format)
 		{
 			return (my_arr[i].f);
 		}
