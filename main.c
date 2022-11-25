@@ -17,7 +17,7 @@ int main(void)
 	_printf("String:[%s]\n", "I am a string !");
 
 
-	printf("system function\n");
+	printf("\nsystem function\n");
 	sysLen =  printf("Let's try to printf a simple sentence.\n");
 	printf("Length = %d\n", sysLen);
 	printf("Character:[%c]\n", 'H');

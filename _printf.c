@@ -25,11 +25,27 @@ int _printf(const char *format, ...)
 			i++;
 			total += countStr;
 
-		}
-
-		if (format[i] == '%')
+		}  else
 		{
-			
+			i++;
+
+			if (format[i] == 'c')
+				countStr = write(1, &format[i], 1);
+			else if (format[i] == 's')
+				countStr = write(1, &format[i], 1);
+			else
+			{
+				write(1, "\nerror... '", 10);
+				write(1, "%", 1);
+				write(1, &format[i], 1);
+				write(1, "'", 1);
+				break;
+			}
+			i++;
+
+
+			total += countStr;
+
 		}
 	}
 
