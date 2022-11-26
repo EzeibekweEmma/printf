@@ -1,13 +1,14 @@
 #include "main.h"
-
-/* identifier_checker - check that charater is a valid identifier
+#include <unistd.h>
+/**
+ * identifier_checker - check that charater is a valid identifier
  * @format: identifier charater
  *
  * Return: pointer to function
  */
 
 
-int (*identifier_checker(char *format))(va_list)
+int (*identifier_checker(const char *format))(va_list)
 {
 
 	func_t my_arr[4] = {
@@ -16,14 +17,15 @@ int (*identifier_checker(char *format))(va_list)
 		{"%", print_cent},
 		{NULL, NULL}
 	};
-	
+
 	int i;
 
 	for (i = 0; my_arr[i].t != NULL; i++)
 	{
-		if (my_arr[i].t == *format)
+		if (*(my_arr[i].t) == *format)
 		{
 			return (my_arr[i].f);
 		}
 	}
+	return (NULL);
 }

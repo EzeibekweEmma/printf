@@ -7,21 +7,17 @@
 
 int main(void)
 {
-	int ourLen;
-	int sysLen;
+	int ourLen = 0;
+	int sysLen = 0;
 
 	write(1, "our function\n", 13);
-	ourLen = _printf("Let's try to printf a simple sentence.\n");
+	ourLen = _printf("Let's try to printf a simple sentence with: %c character\n", 'H');
 	printf("Length = %d\n", ourLen);
-	_printf("Character:[%c]\n", 'H');
-	_printf("String:[%s]\n", "I am a string !");
 
 
-	printf("system function\n");
-	sysLen =  printf("Let's try to printf a simple sentence.\n");
+	write(1, "system function\n", 16);
+	sysLen =  printf("Let's try to printf a simple sentence with: %c character\n", 'H');
 	printf("Length = %d\n", sysLen);
-	printf("Character:[%c]\n", 'H');
-	printf("String:[%s]\n", "I am a string !");
 
 
 	return (0);
