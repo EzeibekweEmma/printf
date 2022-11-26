@@ -13,9 +13,9 @@ int _printf(const char *format, ...)
 {
 	int countStr = 0, total = 0, i = 0;
 	va_list args;
+	int (*f)(va_list);
 
 	va_start(args, format);
-	int (*f)(va_list);
 
 	/*checking if format is NULL values*/
 	if (format == NULL)
